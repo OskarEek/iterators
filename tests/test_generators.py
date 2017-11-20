@@ -3,19 +3,19 @@ from exercises.generators import cubes, primes, fibonacci, alphabet, permutation
 import json
 
 
-@pytest.mark.skip('Not implemented yet.')
+
 def test_generator_is_iterable():
     gen = cubes()
     assert '__init__' in dir(gen)
     assert '__next__' in dir(gen)
 
 
-@pytest.mark.skip('Not implemented yet.')
+
 def test_cubes():
     c = iter(cubes())
     for i in range(1, 1001):
         value = next(c)
-        assert c == i ** 3
+        assert value == i ** 3
 
 
 @pytest.mark.skip('Not implemented yet.')

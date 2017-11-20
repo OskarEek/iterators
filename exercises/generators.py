@@ -10,7 +10,10 @@ def cubes():
     Talserien ska inte ha något slut.
 
     """
-    pass
+    numbers = 1
+    while True:
+        yield numbers ** 3
+        numbers += 1
 
 
 def primes():
@@ -31,7 +34,10 @@ def fibonacci():
     Alltså börjar serien: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
 
     """
-    pass
+    a, b = 0, 1
+    while True:
+        c, a, b = a, b, (a + b)
+        yield c
 
 
 def alphabet():

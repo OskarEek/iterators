@@ -10,7 +10,17 @@ class Cubes():
     Talserien ska inte ha något slut.
 
     """
-    pass
+    def __init__(self):
+        self.number = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.number += 1
+        return self.number ** 3
+
+
 
 
 class Primes():
@@ -20,6 +30,30 @@ class Primes():
 
     """
     pass
+    def __init__(self):
+        self.number = 1
+        self.primes = []
+        self.y = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if not self.number % self.y == 0:
+            Primes.is_prime(i)
+        #while self.y < self.number and self.y > 1:
+        #   self.y += 1
+
+
+        #    x = self.number / self.y
+        #    if isinstance(x, int) == false:
+        #        self.primes.append(self.number)
+        #        return primes
+        #    else:
+        #        self.number += 1
+
+#    @staticmethod
+#    def is_prime(x):
 
 
 class Fibonacci():
@@ -31,7 +65,24 @@ class Fibonacci():
     Alltså börjar serien: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
 
     """
-    pass
+    def __init__(self):
+        self.numbers = [0, 1]
+        self.count = -1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+
+        if self.count < 1:  # First two numbers.
+            self.count += 1
+            return self.count
+
+        n = self.numbers[0] + self.numbers[1]  # nästa värde
+        self.numbers[0] = self.numbers[1]
+        self.numbers[1] = n
+        return n
+
 
 
 class Alphabet():
@@ -44,6 +95,23 @@ class Alphabet():
     Nun, Samekh, Ayin, Pe, Tsadi, Qof, Resh, Shin, Tav
 
     """
+    def __init__(self):
+        self.a = 0
+        self.b = 1
+        self.names = ['Alef', 'Bet', 'Gimel', 'Dalet', 'He', 'Vav', 'Zayin', 'Het',
+                        'Tet', 'Yod', 'Kaf', 'Lamed', 'Mem',
+                        'Nun', 'Samekh', 'Ayin', 'Pe', 'Tsadi', 'Qof', 'Resh', 'Shin', 'Tav']
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if len(self.names) <= self.a:
+            raise StopIteration
+
+        b = self.names[self.a]
+        self.a += 1
+        return b
 
 
 class Permutations():
